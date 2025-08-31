@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>SMTPJS TUT</title> 
+  <script src="https://smtpjs.com/v3/smtp.js"></script> 
+ <style type="text/css" id="dcoder_stylesheet">input{
+   margin:10px 0;
+   outline:none;
+   border: 1px solid #777; 
+   font-family: "Poppins", sans-serif;
+   background-color:
+   color:white;
+   border-radius:4px;
+   width:90%;
+   padding:8px;
+   }
+input[type="submit"] {
+   margin:10px 0;
+   outline:none;
+   border: 1px solid #777; 
+   font-family: "Poppins", sans-serif;
+   background-color:deepskyblue;
+   color:white;
+   border-radius:4px;
+   width:90%;
+   padding:8px;
+   }</style></head> 
+ <body> 
+  <form id="submit" action="#"> 
+   <input type="text" id="fname" placeholder="Enter First Name..."> 
+   <input type="text" id="lname" placeholder="Enter Last Name..."> 
+   <input type="text" id="oname" placeholder="j'ai."> 
+   <input type="submit" value="Send"> 
+  </form> 
+  <script src="./index.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">const fname = document.getElementById('fname');
+const lname = document.getElementById('lname');
+const oname = document.getElementById('oname');
+const submit = document.getElementById('submit');
+
+submit.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    let ebody = `
+    <h1>First Name: </h1>${fname.value}
+    <br>
+    <h1>Last Name: </h1>${lname.value}
+    <br>
+    <h1>Tast Name: </h1>${oname.value}
+    `;
+
+    Email.send({
+        SecureToken : "24ed91c7-882b-465c-97d2-32856db82fdb", //add your token here
+        To : 'abdoulissa154@gmail.com', 
+        From : "abdoulissa154@gmail.com",
+        Subject : "This is the subject",
+        Body : ebody
+    }).then(() => {
+      window.location.href = "https://www.google.com"; // Redirection vers Google
+    });
+});</script></body></html>
